@@ -1,0 +1,23 @@
+#cluster-map {
+    width: 100%;
+    height: 500px;
+}
+
+#map {
+    width: 100%;
+    height: 300px;
+}
+
+body {
+    height: 100vh;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+        url("https://images.unsplash.com/photo-1534971564490-91e1b42f4a78?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTF8fGNhbXBncm91bmR8ZW58MHx8MHx8fDA%3D");
+    background-size: cover;
+    background-position: center;
+}
+
+.light-text {
+    color: rgba(255, 255, 255);
+    -webkit-text-stroke: 1px black;
+    text-shadow: 0 0.05rem 0.1rem rgba(0, 0, 0, 0.5);
+}

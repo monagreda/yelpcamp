@@ -1,0 +1,56 @@
+<% layout('layouts/boilerplate') %>
+
+    <body>
+        <div id="cluster-map"></div>
+        <h1 class="light-text">All Campgrounds</h1>
+        <div>
+            <a href="campgrounds/new">Add Campground</a>
+        </div>
+        <form class="d-flex mb-3 mt-2">
+  <input class="form-control me-2" type="search" placeholder="Search Campgrounds..." aria-label="Search" id="campground-search">
+</form>
+        <div id="campgrounds-container">
+        <% for(let campground of campgrounds) {%>
+            <div class="card mb-3 campground-card">
+                <div class="row">
+                    <div class="col-md-4">
+                        <% if(campground.images.length) {%>
+                            <img crossorigin="anonymous" class="img-fluid" alt="" src="<%= campground.images[0].url %>">
+                            <% }else {%>
+                                <img class="img-fluid" alt=""
+                                    src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAO0AAADVCAMAAACMuod9AAAAYFBMVEXu7u5mZmbx8fFdXV3AwMDFxcWLi4tXV1dlZWX09PSrq6u8vLykpKSRkZHs7OxiYmLX19d2dnZwcHDR0dFra2vf3995eXmZmZmBgYHj4+O0tLRTU1OhoaGcnJxaWlqFhYUsohkDAAADb0lEQVR4nO3bC2/iOBSG4cSGwaYQ5waFbsv+/3+55zidQohhupqsFjPvI1WVwFT9eo4vCbQoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgLvMXP7vIN+xW85l9/h5zXp1+uskVr/ptHrJIa1ttj9+37a1i8dvZrM+vfsZJqx/tVnUdrXxM/wcvz1lkfa0meO39Ns8akvaf+8J01ZyFCmq5PCnS2uqy29Xni7tUQpr/B9T26KoX16Wf0ra3WsZXDgsUuOfK6008fGHLV3pXC+xJnP3ydJW5t32oS/LYJtdMXnJU6WVIcdGyhpKEd6mZ82nSisrcS0xpZNDKMPH9BVZp630nsZo9TWdTFkXJ275Mb22yzptnJjjc8SucdrGkjYkcuWcVnIe5Wv0hN+cettrL7eJezI5py18d1j4y06ujDn+bZ3qU7EyTluZrgm9xr18yuvpIrhD8o5MvmmNqWWOhlLiFhfnCCl1vXhbHpO3OvJN6+s2yNrbu6vq6kT2N27r5Jt2CCvFDctxNo1bpePmmnaorG6roQ+xmc+Di1hrEzfj42iTyjCt0Vbt2mFfjWys7tU1QOzoTVv7+IJBhmkrr6uxPaeVo+LCF9fXAJLRrG1ouovHM0wrZOvRkOe4shElru82oXeh7c6Hy+zS6tm4bi7aOB4TXTueu8OL5Kpe/hRN97VkZZdWGrTbh3FaLa9W9+v6vdKpuh5GuYu42aXVytpJWO3mpT+fmU2s7M9FrK0/H88ura+bMhFWu/m878aw4fOqXpu5Hp7KLa2RfTYk45a2jM2sgwovlXXDqF7OIEE2Im3yjNLGc0LdTOfsubzSzJUeLmQ1DqOnJK6+gZBR2mIIeyurxo0bkWw466s/idNmzi2t7/Z3sn7GrXSfdZNm15W5MhmlTW49V5lk3y3WtkxM7bDvTC61Xb17U+81xJ288Rph8eamo3TF0pVZ0s7xHv9/Sw68H/76BHWzvuWNue3a3WseaVfr453V+DJSGW4uZPZwCBmklam43YeY5ddx+/QoV+obJqn7ro/GvFl3b+sZuVVbvavu8uhk+52yfgNpHw1pnzvtPELyEwqPZZa0+u5QJrVd2Tmc7CqHtPViJi+79GeLHsos/1Lw9TFlAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA4LZ/AJgyNWEu01a3AAAAAElFTkSuQmCC">
+                                <% } %>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                <%= campground.title %>
+                            </h5>
+                            <p class="card-text">
+                                <%= campground.description %>
+                            </p>
+                            <p class="text-muted">
+                                <small class="">
+                                    <%= campground.location %>
+                                </small>
+                            </p>
+                            <a type="button" class="btn btn-primary" href="/campgrounds/<%=campground._id %>">View <%=
+                                    campground.title %></a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <% } %>
+               <div class="d-grid gap-2 col-6 mx-auto mt-4 mb-2">
+            <button id="btn-load-more" class="btn btn-secondary">Load More</button>
+        </div>
+            </div>
+          
+            <script>
+                const maptilerApiKey = '<%- process.env.MAPTILER_API_KEY %>';
+                const campgrounds = { features: <%- JSON.stringify(campgrounds) %>}
+            </script>
+
+                <script src="/javascripts/clusterMap.js"></script>
+                <script src="/javascripts/campgrounds.js"></script>
