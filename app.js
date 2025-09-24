@@ -4,8 +4,8 @@ if (process.env.NODE_ENV !== 'production') {
 
 
 
-// console.log(process.env.SECRET)
-// console.log(process.env.API_KEY)
+console.log(process.env.SECRET)
+console.log(process.env.API_KEY)
 
 //express and mongoose setup
 const express = require('express');
