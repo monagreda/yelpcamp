@@ -110,7 +110,8 @@ const styleSrcUrls = [
 ];
 const connectSrcUrls = [
     "https://api.maptiler.com/",
-    "https://cdn.jsdelivr.net/"
+    "https://cdn.jsdelivr.net/",
+    "https://tiles.maptiler.com/"
 ];
 
 const fontSrcUrls = [];
