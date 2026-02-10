@@ -21,4 +21,4 @@ A full-stack web application that allows users to create, review, and browse cam
 - **Geocoding:** Automatic location clustering on a map using Maptiler.
 
 ### 📸 Preview
-![Dashboard Preview](https://media.licdn.com/dms/image/v2/D4E2DAQF3BwE_1u5t0w/profile-treasury-image-shrink_8192_8192/B4EZmXiVYrIwAk-/0/1759183987958?e=1770678000&v=beta&t=pD4Xc3EOXsQO3yICy82fCU9pgxdU3KBo4pKp52CKXIk)
+https://yelpcamp-hzcq.onrender.com/
